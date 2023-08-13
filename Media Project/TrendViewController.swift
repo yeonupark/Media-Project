@@ -15,6 +15,8 @@ struct Movie {
     let releaseDate: String
     let poster: String
     let rate: String
+    let overview: String
+    let id: String
 }
 
 class TrendViewController: UIViewController {
@@ -30,7 +32,7 @@ class TrendViewController: UIViewController {
         super.viewDidLoad()
         trendTableView.delegate = self
         trendTableView.dataSource = self
-        trendTableView.rowHeight = 180
+        trendTableView.rowHeight = 200
         
         callRequest()
         
@@ -51,8 +53,10 @@ class TrendViewController: UIViewController {
                     let releaseDate = json["results"][i]["release_date"].stringValue
                     let poster = json["results"][i]["poster_path"].stringValue
                     let rate = json["results"][i]["vote_average"].stringValue
+                    let overview = json["results"][i]["overview"].stringValue
+                    let id = json["results"][i]["id"].stringValue
                     
-                    let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate)
+                    let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id)
                     self.movies.append(movie)
                 }
                 self.trendTableView.reloadData()
@@ -76,16 +80,27 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.titleLabel?.text = movies[indexPath.row].title
         cell.dateLabel?.text = String(movies[indexPath.row].releaseDate.prefix(4))
-        cell.rateLabel?.text = String(movies[indexPath.row].rate.prefix(3))
+        cell.rateLabel?.text = "★ " + String(movies[indexPath.row].rate.prefix(3))
 
-        if let url = URL(string: movies[indexPath.row].poster){
+        let posterUrl = "https://image.tmdb.org/t/p/w500"+movies[indexPath.row].poster
+        if let url = URL(string: posterUrl){
             cell.posterImage.kf.setImage(with: url)
         }
         
         return cell
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: CreditViewController.identifier) as! CreditViewController
+        
+        vc.image = movies[indexPath.row].poster
+        vc.movieTitle = movies[indexPath.row].title
+        vc.content = movies[indexPath.row].overview
+        vc.id = movies[indexPath.row].id
+        
+        present(vc, animated: true)
+        //navigationController?.pushViewController(vc, animated: true)
+    }
 
 }

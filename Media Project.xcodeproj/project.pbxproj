@@ -22,6 +22,8 @@
 		486171662A868B590034DCEE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171652A868B590034DCEE /* APIKey.swift */; };
 		486171682A8754DD0034DCEE /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171672A8754DD0034DCEE /* ReusableViewProtocol.swift */; };
 		4861716B2A8763400034DCEE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4861716A2A8763400034DCEE /* Kingfisher */; };
+		4861716D2A878BA30034DCEE /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861716C2A878BA30034DCEE /* CreditViewController.swift */; };
+		4861716F2A8809EB0034DCEE /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		486171632A868B420034DCEE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		486171652A868B590034DCEE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		486171672A8754DD0034DCEE /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		4861716C2A878BA30034DCEE /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = SOURCE_ROOT; };
+		4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 		486171422A867E9B0034DCEE /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
+				4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */,
+				4861716C2A878BA30034DCEE /* CreditViewController.swift */,
 				486171432A867E9B0034DCEE /* AppDelegate.swift */,
 				486171452A867E9C0034DCEE /* SceneDelegate.swift */,
 				486171472A867E9C0034DCEE /* ViewController.swift */,
@@ -181,6 +187,8 @@
 				486171682A8754DD0034DCEE /* ReusableViewProtocol.swift in Sources */,
 				486171662A868B590034DCEE /* APIKey.swift in Sources */,
 				486171462A867E9C0034DCEE /* SceneDelegate.swift in Sources */,
+				4861716D2A878BA30034DCEE /* CreditViewController.swift in Sources */,
+				4861716F2A8809EB0034DCEE /* CreditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
