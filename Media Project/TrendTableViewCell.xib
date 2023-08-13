@@ -22,63 +22,52 @@
                             <constraint firstAttribute="width" secondItem="LUN-tb-DIH" secondAttribute="height" multiplier="5:6" id="JWr-GP-Mpm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="장르" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-a2-qNa">
-                        <rect key="frame" x="245" y="186" width="60" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="l3D-00-U5e"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sssssssssss" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3V5-In-Mhl">
-                        <rect key="frame" x="208.33333333333334" y="30" width="91.666666666666657" height="20.333333333333329"/>
+                        <rect key="frame" x="150" y="30" width="150" height="20.333333333333329"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="xTr-ga-liU"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개봉년도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqf-yI-BCe">
-                        <rect key="frame" x="240" y="70.333333333333329" width="60" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="yQk-Fi-kw5"/>
-                        </constraints>
+                        <rect key="frame" x="241" y="110.66666666666667" width="59" height="21.000000000000014"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="자세히보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zr-eR-HbO">
-                        <rect key="frame" x="231" y="234" width="74" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장르" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMO-a2-qNa">
+                        <rect key="frame" x="270.33333333333331" y="70.333333333333329" width="29.666666666666686" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBw-Cg-L8s">
-                        <rect key="frame" x="240" y="111.33333333333333" width="60" height="17.999999999999986"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="mF2-pz-4By"/>
-                        </constraints>
+                        <rect key="frame" x="274" y="151.66666666666666" width="26" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="TBw-Cg-L8s" secondAttribute="trailing" constant="20" id="CTY-Ch-QUP"/>
+                    <constraint firstItem="TBw-Cg-L8s" firstAttribute="top" secondItem="bqf-yI-BCe" secondAttribute="bottom" constant="20" id="73q-XM-YRN"/>
+                    <constraint firstItem="tMO-a2-qNa" firstAttribute="trailing" secondItem="3V5-In-Mhl" secondAttribute="trailing" id="CG8-n7-crT"/>
                     <constraint firstAttribute="bottom" secondItem="LUN-tb-DIH" secondAttribute="bottom" constant="10" id="Dut-9i-sFC"/>
-                    <constraint firstItem="bqf-yI-BCe" firstAttribute="top" secondItem="3V5-In-Mhl" secondAttribute="bottom" constant="20" id="FD7-9e-Br7"/>
-                    <constraint firstItem="tMO-a2-qNa" firstAttribute="leading" secondItem="LUN-tb-DIH" secondAttribute="trailing" constant="16" id="M4A-oV-Xc2"/>
+                    <constraint firstItem="bqf-yI-BCe" firstAttribute="trailing" secondItem="tMO-a2-qNa" secondAttribute="trailing" id="G1x-gv-h4v"/>
+                    <constraint firstItem="TBw-Cg-L8s" firstAttribute="trailing" secondItem="bqf-yI-BCe" secondAttribute="trailing" id="KbA-RF-VbS"/>
+                    <constraint firstItem="tMO-a2-qNa" firstAttribute="top" secondItem="3V5-In-Mhl" secondAttribute="bottom" constant="20" id="NGm-5X-iLU"/>
                     <constraint firstItem="3V5-In-Mhl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Xdb-O2-xwV"/>
+                    <constraint firstItem="bqf-yI-BCe" firstAttribute="top" secondItem="tMO-a2-qNa" secondAttribute="bottom" constant="20" id="gZg-sG-VuL"/>
                     <constraint firstItem="LUN-tb-DIH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kDr-Em-eqR"/>
                     <constraint firstAttribute="trailing" secondItem="3V5-In-Mhl" secondAttribute="trailing" constant="20" id="kiz-cm-ssZ"/>
-                    <constraint firstAttribute="trailing" secondItem="bqf-yI-BCe" secondAttribute="trailing" constant="20" id="qla-Sr-WCl"/>
                     <constraint firstItem="LUN-tb-DIH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="z0h-lH-uWw"/>
-                    <constraint firstItem="TBw-Cg-L8s" firstAttribute="top" secondItem="bqf-yI-BCe" secondAttribute="bottom" constant="20" id="zph-zE-IKD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateLabel" destination="bqf-yI-BCe" id="6pi-qt-q4t"/>
+                <outlet property="genreLabel" destination="tMO-a2-qNa" id="vGf-RJ-7Ah"/>
                 <outlet property="posterImage" destination="LUN-tb-DIH" id="3sh-ln-cjy"/>
                 <outlet property="rateLabel" destination="TBw-Cg-L8s" id="Fz1-dv-Jgn"/>
                 <outlet property="titleLabel" destination="3V5-In-Mhl" id="KZZ-al-gG0"/>

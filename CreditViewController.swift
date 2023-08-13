@@ -36,6 +36,7 @@ class CreditViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = false
         
         setMovieInfo()
         
@@ -73,7 +74,7 @@ class CreditViewController: UIViewController {
                     self.castList.append(actor)
                 }
                 self.tableView.reloadData()
-                print(self.castList)
+                //print(self.castList)
                 
             case .failure(let error):
                 print(error)
@@ -108,5 +109,4 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-
 }
