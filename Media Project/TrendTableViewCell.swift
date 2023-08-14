@@ -33,11 +33,12 @@ class TrendTableViewCell: UITableViewCell {
         dateLabel.textColor = .white
         dateLabel.font = .boldSystemFont(ofSize: 15)
         
+        genreLabel.textColor = .white
+        genreLabel.numberOfLines = 0
+        genreLabel.textAlignment = .right
+        genreLabel.font = .systemFont(ofSize: 14)
+        
         rateLabel.textColor = .white
     }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
     
 }

@@ -18,14 +18,15 @@ struct Movie {
     let overview: String
     let id: String
     
-    let genres: [String]
+    let genres: [JSON]
 }
 
 class TrendViewController: UIViewController {
     
     @IBOutlet var trendTableView: UITableView!
     var movies: [Movie] = []
-    //var genreList: [String] = []
+    
+    var genre_dict: [[String: String]] = []
     
     override func viewDidLoad() {
         
@@ -37,6 +38,7 @@ class TrendViewController: UIViewController {
         trendTableView.dataSource = self
         trendTableView.rowHeight = 200
         
+        getGenre()
         callRequest()
         
     }
@@ -59,13 +61,7 @@ class TrendViewController: UIViewController {
                     let id = json["results"][i]["id"].stringValue
                     let genre_ids = json["results"][i]["genre_ids"].arrayValue
                     
-                    var genres: [String] = []
-                    for id in genre_ids {
-                        let string_id = id.stringValue
-                        genres.append(self.getGenre(string_id))
-                    }
-                    
-                    let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genres)
+                    let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genre_ids)
                     
                     self.movies.append(movie)
                     
@@ -78,30 +74,27 @@ class TrendViewController: UIViewController {
         }
     }
     
-    func getGenre(_ id: String) -> String {
+    func getGenre()  {
         let url = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(APIKey.tmdb_accept)"
-        //var genreList: [String] = []
-        var movieGenre = ""
+
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-
+                
                 for genre in json["genres"] {
-                    if genre.1["id"].stringValue == id {
-                        movieGenre = genre.1["name"].stringValue
-                    }
+                    let id = genre.1["id"].stringValue
+                    let name = genre.1["name"].stringValue
+                    
+                    let arr = ["id": id, "name": name]
+                    self.genre_dict.append(arr)
                 }
-                print(movieGenre)
-                //self.trendTableView.reloadData()
-
-
+                
             case .failure(let error):
                 print(error)
             }
             
         }
-        return movieGenre
     }
 }
     
@@ -117,9 +110,8 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel?.text = movies[indexPath.row].title
         cell.dateLabel?.text = String(movies[indexPath.row].releaseDate.prefix(4))
         cell.rateLabel?.text = "★ " + String(movies[indexPath.row].rate.prefix(3))
-        //let genres = movies[indexPath.row].genres
-        //print(genres)
-        //cell.genreLabel?.text = genres[0]
+        let genres = translateGenre(movies[indexPath.row].genres)
+        cell.genreLabel?.text = genres
         
         let posterUrl = "https://image.tmdb.org/t/p/w500"+movies[indexPath.row].poster
         if let url = URL(string: posterUrl){
@@ -141,5 +133,17 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         present(vc, animated: true)
         //navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    func translateGenre(_ genre_ids: [JSON]) -> String {
+        var genre_sentence = ""
+        for id in genre_ids {
+            let string_id = id.stringValue
+            for genre in genre_dict {
+                if genre["id"] == string_id {
+                    genre_sentence += "#\(genre["name"]!) "
+                }
+            }
+        }
+        return genre_sentence
+    }
 }
