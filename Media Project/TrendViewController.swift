@@ -140,7 +140,10 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
             let string_id = id.stringValue
             for genre in genre_dict {
                 if genre["id"] == string_id {
-                    genre_sentence += "#\(genre["name"]!) "
+                    if let name = genre["name"] {
+                        genre_sentence += "#\(name) "
+                    }
+                    
                 }
             }
         }
