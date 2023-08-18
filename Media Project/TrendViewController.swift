@@ -18,60 +18,80 @@ struct Movie {
     let overview: String
     let id: String
     
-    let genres: [JSON]
+    let genres: [Int]
 }
 
 class TrendViewController: UIViewController {
     
+    @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var trendTableView: UITableView!
+    
     var movies: [Movie] = []
+    var trendMovies: [Movie] = []
+    var similarMovies: [Movie] = []
     
     var genre_dict: [[String: String]] = []
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         let nib = UINib(nibName: TrendTableViewCell.identifier, bundle: nil)
         trendTableView.register(nib, forCellReuseIdentifier: TrendTableViewCell.identifier)
         
-        super.viewDidLoad()
         trendTableView.delegate = self
         trendTableView.dataSource = self
         trendTableView.rowHeight = 200
         
+        setSegmentedControl()
         getGenre()
-        callRequest()
-        
+        dispatchGroup()
     }
     
-    func callRequest() {
+    func dispatchGroup() {
         
-        let url = "https://api.themoviedb.org/3/trending/movie/day?api_key=\(APIKey.tmdb_accept)"
+        let group = DispatchGroup()
         
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
+        group.enter()
+        TrendAPIManager.shared.callRequest { data in
+            
+            for result in data.results {
+                let title = result.title
+                let releaseDate = result.releaseDate
+                let poster = result.posterPath
+                let rate = String(result.voteAverage)
+                let overview = result.overview
+                let id = String(result.id)
+                let genre_ids = result.genreIDS
                 
-                for i in 0...json["results"].count-1 {
-                    let title = json["results"][i]["title"].stringValue
-                    let releaseDate = json["results"][i]["release_date"].stringValue
-                    let poster = json["results"][i]["poster_path"].stringValue
-                    let rate = json["results"][i]["vote_average"].stringValue
-                    let overview = json["results"][i]["overview"].stringValue
-                    let id = json["results"][i]["id"].stringValue
-                    let genre_ids = json["results"][i]["genre_ids"].arrayValue
-                    
-                    let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genre_ids)
-                    
-                    self.movies.append(movie)
-                    
-                }
-                self.trendTableView.reloadData()
-                
-            case .failure(let error):
-                print(error)
+                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genre_ids)
+                self.trendMovies.append(movie)
             }
+            group.leave()
         }
+        
+        group.enter()
+        SimilarAPIManager.shared.callSimilarRequest(13) { data in
+            for result in data.results {
+                let title = result.title
+                let releaseDate = result.releaseDate
+                let poster = result.posterPath
+                let rate = String(result.voteAverage)
+                let overview = result.overview
+                let id = String(result.id)
+                let genre_ids = result.genreIDS
+                
+                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genre_ids)
+                self.similarMovies.append(movie)
+            }
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.movies = self.trendMovies //
+            self.trendTableView.reloadData()
+            print("end")
+        }
+        
     }
     
     func getGenre()  {
@@ -96,6 +116,23 @@ class TrendViewController: UIViewController {
             
         }
     }
+    
+    func setSegmentedControl() {
+        segmentedControl.setTitle("실시간 인기 컨텐츠", forSegmentAt: 0)
+        segmentedControl.setTitle("유사한 컨텐츠", forSegmentAt: 1)
+        segmentedControl.backgroundColor = .systemPink
+    }
+    
+    @IBAction func switchViews(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            movies = trendMovies
+            trendTableView.reloadData()
+            
+        } else {
+            movies = similarMovies
+            trendTableView.reloadData()
+        }
+    }
 }
     
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
@@ -104,7 +141,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = trendTableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as! TrendTableViewCell
 
         cell.titleLabel?.text = movies[indexPath.row].title
@@ -122,6 +159,8 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let show = segmentedControl.selectedSegmentIndex
+//        let movies = show == 0 ? trendMovies : similarMovies
         
         let vc = storyboard?.instantiateViewController(withIdentifier: CreditViewController.identifier) as! CreditViewController
         
@@ -131,13 +170,12 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         vc.id = movies[indexPath.row].id
         
         present(vc, animated: true)
-        //navigationController?.pushViewController(vc, animated: true)
     }
     
-    func translateGenre(_ genre_ids: [JSON]) -> String {
+    func translateGenre(_ genre_ids: [Int]) -> String {
         var genre_sentence = ""
         for id in genre_ids {
-            let string_id = id.stringValue
+            let string_id = String(id)
             for genre in genre_dict {
                 if genre["id"] == string_id {
                     if let name = genre["name"] {
@@ -149,4 +187,5 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return genre_sentence
     }
+    
 }

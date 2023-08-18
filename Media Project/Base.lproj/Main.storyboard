@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trend View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TrendViewController" id="BYZ-38-t0r" customClass="TrendViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,18 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="4Lv-7W-zgS">
-                                <rect key="frame" x="0.0" y="59" width="393" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="IDy-qu-h4K"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="oGK-YG-Oqz"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9pc-ok-BXQ">
-                                <rect key="frame" x="0.0" y="104" width="393" height="714"/>
+                                <rect key="frame" x="0.0" y="90" width="393" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TrendTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrendTableViewCell" rowHeight="199" id="MwM-Hm-RCu" customClass="TrendTableViewCell" customModule="Media_Project" customModuleProvider="target">
@@ -40,26 +30,38 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CcS-wa-UIe">
+                                <rect key="frame" x="0.0" y="59" width="393" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchViews:" destination="BYZ-38-t0r" eventType="valueChanged" id="xmk-jZ-LEo"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4Lv-7W-zgS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="44c-5e-jA8"/>
                             <constraint firstItem="9pc-ok-BXQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9a2-Dr-Grh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CcS-wa-UIe" secondAttribute="trailing" id="GZA-bS-eub"/>
+                            <constraint firstItem="CcS-wa-UIe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="adK-N8-n5G"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9pc-ok-BXQ" secondAttribute="trailing" id="fpb-IQ-UqG"/>
-                            <constraint firstItem="4Lv-7W-zgS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iHs-u2-N7K"/>
+                            <constraint firstItem="CcS-wa-UIe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gVi-gw-MxI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9pc-ok-BXQ" secondAttribute="bottom" id="lGB-KP-j28"/>
-                            <constraint firstItem="9pc-ok-BXQ" firstAttribute="top" secondItem="4Lv-7W-zgS" secondAttribute="bottom" id="m1l-Ui-toR"/>
-                            <constraint firstItem="4Lv-7W-zgS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="t5h-9y-aQ5"/>
+                            <constraint firstItem="9pc-ok-BXQ" firstAttribute="top" secondItem="CcS-wa-UIe" secondAttribute="bottom" id="sKP-Do-bdP"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="zEz-AQ-87q"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="CcS-wa-UIe" id="KT5-gh-6dL"/>
                         <outlet property="trendTableView" destination="9pc-ok-BXQ" id="XeT-5i-99t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="411" y="-215"/>
         </scene>
         <!--Credit View Controller-->
         <scene sceneID="Yam-ez-MOz">
@@ -181,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOn-cC-VyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956.48854961832058" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1215" y="-215"/>
         </scene>
     </scenes>
     <resources>

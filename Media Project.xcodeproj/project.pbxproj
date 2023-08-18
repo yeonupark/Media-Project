@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4829063A2A8F7B7200B45D84 /* Similar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482906392A8F7B7200B45D84 /* Similar.swift */; };
+		4829063C2A8F7BEE00B45D84 /* SimilarAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829063B2A8F7BEE00B45D84 /* SimilarAPIManager.swift */; };
+		482906402A8F7FF600B45D84 /* TrendAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829063F2A8F7FF600B45D84 /* TrendAPIManager.swift */; };
+		482906422A8F820300B45D84 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482906412A8F820300B45D84 /* Trending.swift */; };
 		486171442A867E9B0034DCEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171432A867E9B0034DCEE /* AppDelegate.swift */; };
 		486171462A867E9C0034DCEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171452A867E9C0034DCEE /* SceneDelegate.swift */; };
-		486171482A867E9C0034DCEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171472A867E9C0034DCEE /* ViewController.swift */; };
 		4861714B2A867E9C0034DCEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486171492A867E9C0034DCEE /* Main.storyboard */; };
 		4861714D2A867E9F0034DCEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4861714C2A867E9F0034DCEE /* Assets.xcassets */; };
 		486171502A867E9F0034DCEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4861714E2A867E9F0034DCEE /* LaunchScreen.storyboard */; };
@@ -27,10 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482906392A8F7B7200B45D84 /* Similar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Similar.swift; sourceTree = "<group>"; };
+		4829063B2A8F7BEE00B45D84 /* SimilarAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarAPIManager.swift; sourceTree = "<group>"; };
+		4829063F2A8F7FF600B45D84 /* TrendAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendAPIManager.swift; sourceTree = "<group>"; };
+		482906412A8F820300B45D84 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
 		486171402A867E9B0034DCEE /* Media Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Media Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486171432A867E9B0034DCEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		486171452A867E9C0034DCEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		486171472A867E9C0034DCEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4861714A2A867E9C0034DCEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4861714C2A867E9F0034DCEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4861714F2A867E9F0034DCEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,8 +47,8 @@
 		486171632A868B420034DCEE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		486171652A868B590034DCEE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		486171672A8754DD0034DCEE /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
-		4861716C2A878BA30034DCEE /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = SOURCE_ROOT; };
-		4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		4861716C2A878BA30034DCEE /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreditViewController.swift; path = "Media Project/CreditView/CreditViewController.swift"; sourceTree = SOURCE_ROOT; };
+		4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreditTableViewCell.swift; path = "Media Project/CreditView/CreditTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482906362A8F7B0800B45D84 /* TrendView */ = {
+			isa = PBXGroup;
+			children = (
+				4861715F2A868A000034DCEE /* TrendTableViewCell.swift */,
+				486171602A868A000034DCEE /* TrendTableViewCell.xib */,
+				4829063F2A8F7FF600B45D84 /* TrendAPIManager.swift */,
+				482906412A8F820300B45D84 /* Trending.swift */,
+			);
+			path = TrendView;
+			sourceTree = "<group>";
+		};
+		482906372A8F7B2400B45D84 /* CreditView */ = {
+			isa = PBXGroup;
+			children = (
+				4861716C2A878BA30034DCEE /* CreditViewController.swift */,
+				4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */,
+			);
+			path = CreditView;
+			sourceTree = "<group>";
+		};
+		482906382A8F7B4D00B45D84 /* SimilarView */ = {
+			isa = PBXGroup;
+			children = (
+				482906392A8F7B7200B45D84 /* Similar.swift */,
+				4829063B2A8F7BEE00B45D84 /* SimilarAPIManager.swift */,
+			);
+			path = SimilarView;
+			sourceTree = "<group>";
+		};
 		486171372A867E9B0034DCEE = {
 			isa = PBXGroup;
 			children = (
@@ -78,15 +113,13 @@
 		486171422A867E9B0034DCEE /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
-				4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */,
-				4861716C2A878BA30034DCEE /* CreditViewController.swift */,
+				482906382A8F7B4D00B45D84 /* SimilarView */,
+				482906372A8F7B2400B45D84 /* CreditView */,
+				482906362A8F7B0800B45D84 /* TrendView */,
 				486171432A867E9B0034DCEE /* AppDelegate.swift */,
 				486171452A867E9C0034DCEE /* SceneDelegate.swift */,
-				486171472A867E9C0034DCEE /* ViewController.swift */,
-				486171492A867E9C0034DCEE /* Main.storyboard */,
-				4861715F2A868A000034DCEE /* TrendTableViewCell.swift */,
-				486171602A868A000034DCEE /* TrendTableViewCell.xib */,
 				4861715D2A8689E40034DCEE /* TrendViewController.swift */,
+				486171492A867E9C0034DCEE /* Main.storyboard */,
 				486171672A8754DD0034DCEE /* ReusableViewProtocol.swift */,
 				486171632A868B420034DCEE /* .gitignore */,
 				486171652A868B590034DCEE /* APIKey.swift */,
@@ -182,12 +215,15 @@
 			files = (
 				4861715E2A8689E40034DCEE /* TrendViewController.swift in Sources */,
 				486171612A868A000034DCEE /* TrendTableViewCell.swift in Sources */,
-				486171482A867E9C0034DCEE /* ViewController.swift in Sources */,
+				482906402A8F7FF600B45D84 /* TrendAPIManager.swift in Sources */,
+				482906422A8F820300B45D84 /* Trending.swift in Sources */,
 				486171442A867E9B0034DCEE /* AppDelegate.swift in Sources */,
 				486171682A8754DD0034DCEE /* ReusableViewProtocol.swift in Sources */,
+				4829063A2A8F7B7200B45D84 /* Similar.swift in Sources */,
 				486171662A868B590034DCEE /* APIKey.swift in Sources */,
 				486171462A867E9C0034DCEE /* SceneDelegate.swift in Sources */,
 				4861716D2A878BA30034DCEE /* CreditViewController.swift in Sources */,
+				4829063C2A8F7BEE00B45D84 /* SimilarAPIManager.swift in Sources */,
 				4861716F2A8809EB0034DCEE /* CreditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
