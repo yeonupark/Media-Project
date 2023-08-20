@@ -24,11 +24,7 @@ class CreditViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var movieTitle = ""
-    var image = ""
-    var content = ""
-    
-    var id = ""
+    var movie: Movie = Movie(title: "", releaseDate: "", poster: "", rate: "", overview: "", id: "", genres: [])
     
     var castList: [cast] = []
     override func viewDidLoad() {
@@ -40,20 +36,20 @@ class CreditViewController: UIViewController {
         
         setMovieInfo()
         
-        callCreditRequest(id: id )
+        callCreditRequest(id: movie.id )
     }
     
     func setMovieInfo() {
-        let posterUrl = "https://image.tmdb.org/t/p/w500"+image
+        let posterUrl = "https://image.tmdb.org/t/p/w500"+movie.poster
         if let url = URL(string: posterUrl){
             posterImage.kf.setImage(with: url)
         }
         
-        titleLabel.text = movieTitle
+        titleLabel.text = movie.title
         titleLabel.backgroundColor = .white
         titleLabel.font = .boldSystemFont(ofSize: 15)
         
-        contentTextView.text = content
+        contentTextView.text = movie.overview
         contentTextView.isEditable = false
     }
     

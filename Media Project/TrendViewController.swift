@@ -74,13 +74,13 @@ class TrendViewController: UIViewController {
             for result in data.results {
                 let title = result.title
                 let releaseDate = result.releaseDate
-                let poster = result.posterPath
                 let rate = String(result.voteAverage)
                 let overview = result.overview
                 let id = String(result.id)
                 let genre_ids = result.genreIDS
-                
-                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genre_ids)
+                let poster = result.posterPath
+
+                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster ?? "" , rate: rate, overview: overview, id: id, genres: genre_ids)
                 self.similarMovies.append(movie)
             }
             group.leave()
@@ -143,14 +143,15 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = trendTableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as! TrendTableViewCell
-
-        cell.titleLabel?.text = movies[indexPath.row].title
-        cell.dateLabel?.text = String(movies[indexPath.row].releaseDate.prefix(4))
-        cell.rateLabel?.text = "★ " + String(movies[indexPath.row].rate.prefix(3))
-        let genres = translateGenre(movies[indexPath.row].genres)
+        
+        let movie = movies[indexPath.row]
+        cell.titleLabel?.text = movie.title
+        cell.dateLabel?.text = String(movie.releaseDate.prefix(4))
+        cell.rateLabel?.text = "★ " + String(movie.rate.prefix(3))
+        let genres = translateGenre(movie.genres)
         cell.genreLabel?.text = genres
         
-        let posterUrl = "https://image.tmdb.org/t/p/w500"+movies[indexPath.row].poster
+        let posterUrl = "https://image.tmdb.org/t/p/w500"+movie.poster
         if let url = URL(string: posterUrl){
             cell.posterImage.kf.setImage(with: url)
         }
@@ -159,16 +160,10 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let show = segmentedControl.selectedSegmentIndex
-//        let movies = show == 0 ? trendMovies : similarMovies
         
         let vc = storyboard?.instantiateViewController(withIdentifier: CreditViewController.identifier) as! CreditViewController
         
-        vc.image = movies[indexPath.row].poster
-        vc.movieTitle = movies[indexPath.row].title
-        vc.content = movies[indexPath.row].overview
-        vc.id = movies[indexPath.row].id
-        
+        vc.movie = movies[indexPath.row]
         present(vc, animated: true)
     }
     
