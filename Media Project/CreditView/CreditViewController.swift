@@ -24,8 +24,7 @@ class CreditViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var movie: Movie = Movie(title: "", releaseDate: "", poster: "", rate: "", overview: "", id: "", genres: [])
-    
+    var movie: Movie = Movie(title: " ", releaseDate: " ", poster: " ", rate: " ", overview: " ", id: " ", originalTitle: " ", genres: [])
     var castList: [cast] = []
     override func viewDidLoad() {
         super.viewDidLoad()

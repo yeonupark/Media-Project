@@ -9,8 +9,9 @@ import UIKit
 
 class TrendTableViewCell: UITableViewCell {
 
-    @IBOutlet var rateLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var rateLabel: UILabel!
+    @IBOutlet var originalTitleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var posterImage: UIImageView!
     @IBOutlet var genreLabel: UILabel!
@@ -29,6 +30,10 @@ class TrendTableViewCell: UITableViewCell {
         titleLabel.backgroundColor = .white
         titleLabel.textColor = .black
         titleLabel.font = .boldSystemFont(ofSize: 16)
+        
+        originalTitleLabel.backgroundColor = .lightGray
+        originalTitleLabel.textColor = .systemPink
+        originalTitleLabel.font = .boldSystemFont(ofSize: 16)
         
         dateLabel.textColor = .white
         dateLabel.font = .boldSystemFont(ofSize: 15)

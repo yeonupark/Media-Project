@@ -17,6 +17,7 @@ struct Movie {
     let rate: String
     let overview: String
     let id: String
+    let originalTitle: String
     
     let genres: [Int]
 }
@@ -35,8 +36,8 @@ class TrendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: TrendTableViewCell.identifier, bundle: nil)
-        trendTableView.register(nib, forCellReuseIdentifier: TrendTableViewCell.identifier)
+        let nib = UINib(nibName: "TrendTableViewCell", bundle: nil)
+        trendTableView.register(nib, forCellReuseIdentifier: "TrendTableViewCell")
         
         trendTableView.delegate = self
         trendTableView.dataSource = self
@@ -62,8 +63,9 @@ class TrendViewController: UIViewController {
                 let overview = result.overview
                 let id = String(result.id)
                 let genre_ids = result.genreIDS
+                let originalTitle = result.originalTitle
                 
-                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, genres: genre_ids)
+                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster, rate: rate, overview: overview, id: id, originalTitle: originalTitle, genres: genre_ids)
                 self.trendMovies.append(movie)
             }
             group.leave()
@@ -79,8 +81,9 @@ class TrendViewController: UIViewController {
                 let id = String(result.id)
                 let genre_ids = result.genreIDS
                 let poster = result.posterPath
+                let originalTitle = result.originalTitle
 
-                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster ?? "" , rate: rate, overview: overview, id: id, genres: genre_ids)
+                let movie = Movie(title: title, releaseDate: releaseDate, poster: poster ?? "" , rate: rate, overview: overview, id: id, originalTitle: originalTitle, genres: genre_ids)
                 self.similarMovies.append(movie)
             }
             group.leave()
@@ -146,6 +149,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
         
         let movie = movies[indexPath.row]
         cell.titleLabel?.text = movie.title
+        cell.originalTitleLabel?.text = " " + movie.originalTitle
         cell.dateLabel?.text = String(movie.releaseDate.prefix(4))
         cell.rateLabel?.text = "★ " + String(movie.rate.prefix(3))
         let genres = translateGenre(movie.genres)
