@@ -17,15 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let isLaunced = UserDefaults.standard.bool(forKey: "isLaunched")
-
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
         if !isLaunced {
             let vc = IntroViewController()
             window?.rootViewController = vc
         } else {
-            let vc = TrendViewController()
+            guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
             window?.rootViewController = vc
         }
-        
         
         window?.makeKeyAndVisible()
         
