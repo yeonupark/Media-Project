@@ -100,9 +100,11 @@ class LocationViewController: UIViewController {
         
         let allCoord = [cgvCoord, lotteCoord, megaCoord]
         
-        for coordList in allCoord {
-            mapView.removeAnnotations(coordList)
-        }
+//        for coordList in allCoord {
+//            mapView.removeAnnotations(coordList)
+//        }
+        mapView.removeAnnotations(mapView.annotations)
+        
         mapView.addAnnotations(allCoord[type])
     }
     

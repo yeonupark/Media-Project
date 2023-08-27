@@ -36,8 +36,8 @@ class TrendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "TrendTableViewCell", bundle: nil)
-        trendTableView.register(nib, forCellReuseIdentifier: "TrendTableViewCell")
+        let nib = UINib(nibName: TrendTableViewCell.identifier, bundle: nil)
+        trendTableView.register(nib, forCellReuseIdentifier: TrendTableViewCell.identifier)
         
         trendTableView.delegate = self
         trendTableView.dataSource = self
@@ -46,6 +46,8 @@ class TrendViewController: UIViewController {
         setSegmentedControl()
         getGenre()
         dispatchGroup()
+        
+        UserDefaults.standard.set(true, forKey: "isLaunched")
     }
     
     func dispatchGroup() {
