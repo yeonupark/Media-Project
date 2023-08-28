@@ -19,7 +19,7 @@ struct Movie {
     let genres: [Int]
 }
 
-class TrendView: BaseView {
+class MovieView: BaseView {
 
     let segmentedControl = {
         let view = UISegmentedControl(items: ["실시간 인기 컨텐츠", "유사한 컨텐츠"])
@@ -31,7 +31,7 @@ class TrendView: BaseView {
     
     let trendTableView = {
         let view = UITableView(frame: .zero, style: .plain)
-        view.register(TrendingTableViewCell.self, forCellReuseIdentifier: "TrendingTableViewCell")
+        view.register(MovieTableViewCell.self, forCellReuseIdentifier: "MovieTableViewCell")
         
         return view
     }()

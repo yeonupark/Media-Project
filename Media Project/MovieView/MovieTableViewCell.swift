@@ -7,14 +7,7 @@
 
 import UIKit
 
-class TrendingTableViewCell: BaseTableViewCell {
-//    @IBOutlet var titleLabel: UILabel!
-//    @IBOutlet var rateLabel: UILabel!
-//    @IBOutlet var originalTitleLabel: UILabel!
-//    @IBOutlet var dateLabel: UILabel!
-//    @IBOutlet var posterImage: UIImageView!
-//    @IBOutlet var genreLabel: UILabel!
-//    @IBOutlet var view: UIView!
+class MovieTableViewCell: BaseTableViewCell {
     
     let titleLabel = {
         let view = UILabel()

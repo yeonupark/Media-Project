@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let vc = IntroViewController()
             window?.rootViewController = vc
         } else {
-            let vc = TrendViewController()
+            let vc = MovieViewController()
             window?.rootViewController = vc
         }
         

@@ -10,9 +10,9 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
-class TrendViewController: BaseViewController {
+class MovieViewController: BaseViewController {
     
-    let mainView = TrendView()
+    let mainView = MovieView()
     
     var movies: [Movie] = []
     var trendMovies: [Movie] = []
@@ -121,14 +121,14 @@ class TrendViewController: BaseViewController {
     }
 }
     
-extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
+extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = mainView.trendTableView.dequeueReusableCell(withIdentifier: TrendingTableViewCell.identifier) as? TrendingTableViewCell else {
+        guard let cell = mainView.trendTableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier) as? MovieTableViewCell else {
             print("ㅜㅜ")
             return UITableViewCell()}
         

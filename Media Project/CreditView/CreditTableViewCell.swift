@@ -7,25 +7,6 @@
 
 import UIKit
 
-//class CreditTableViewCell: UITableViewCell {
-//
-//    @IBOutlet var name: UILabel!
-//    @IBOutlet var roleName: UILabel!
-//    @IBOutlet var profileImage: UIImageView!
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        profileImage.contentMode = .scaleToFill
-//
-//        name.font = .boldSystemFont(ofSize: 15)
-//        roleName.font = .systemFont(ofSize: 14)
-//        roleName.textColor = .darkGray
-//
-//    }
-
-
-//}
-
 class CreditTableViewCell: BaseTableViewCell {
     
     let name = {

@@ -20,9 +20,7 @@
 		486171502A867E9F0034DCEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4861714E2A867E9F0034DCEE /* LaunchScreen.storyboard */; };
 		486171592A867ED20034DCEE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 486171582A867ED20034DCEE /* Alamofire */; };
 		4861715C2A867EE40034DCEE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4861715B2A867EE40034DCEE /* SwiftyJSON */; };
-		4861715E2A8689E40034DCEE /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861715D2A8689E40034DCEE /* TrendViewController.swift */; };
-		486171612A868A000034DCEE /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861715F2A868A000034DCEE /* TrendTableViewCell.swift */; };
-		486171622A868A000034DCEE /* TrendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486171602A868A000034DCEE /* TrendTableViewCell.xib */; };
+		4861715E2A8689E40034DCEE /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861715D2A8689E40034DCEE /* MovieViewController.swift */; };
 		486171642A868B420034DCEE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 486171632A868B420034DCEE /* .gitignore */; };
 		486171662A868B590034DCEE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171652A868B590034DCEE /* APIKey.swift */; };
 		486171682A8754DD0034DCEE /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171672A8754DD0034DCEE /* ReusableViewProtocol.swift */; };
@@ -31,11 +29,11 @@
 		4861716F2A8809EB0034DCEE /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */; };
 		487D63DD2A9AFB340078FFEE /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D63DC2A9AFB340078FFEE /* IntroViewController.swift */; };
 		487D64132A9C6BC50078FFEE /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D64122A9C6BC50078FFEE /* CreditView.swift */; };
-		487D64152A9C6BD50078FFEE /* TrendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D64142A9C6BD50078FFEE /* TrendView.swift */; };
+		487D64152A9C6BD50078FFEE /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D64142A9C6BD50078FFEE /* MovieView.swift */; };
 		487D64182A9C6BFE0078FFEE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D64172A9C6BFE0078FFEE /* BaseView.swift */; };
 		487D641A2A9C6C120078FFEE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D64192A9C6C120078FFEE /* BaseViewController.swift */; };
 		487D641D2A9CD8E30078FFEE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D641C2A9CD8E30078FFEE /* BaseTableViewCell.swift */; };
-		487D641F2A9CE3380078FFEE /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D641E2A9CE3380078FFEE /* TrendingTableViewCell.swift */; };
+		487D641F2A9CE3380078FFEE /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487D641E2A9CE3380078FFEE /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,9 +49,7 @@
 		4861714C2A867E9F0034DCEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4861714F2A867E9F0034DCEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		486171512A867E9F0034DCEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4861715D2A8689E40034DCEE /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
-		4861715F2A868A000034DCEE /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
-		486171602A868A000034DCEE /* TrendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendTableViewCell.xib; sourceTree = "<group>"; };
+		4861715D2A8689E40034DCEE /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		486171632A868B420034DCEE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		486171652A868B590034DCEE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		486171672A8754DD0034DCEE /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
@@ -61,11 +57,11 @@
 		4861716E2A8809EB0034DCEE /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreditTableViewCell.swift; path = "Media Project/CreditView/CreditTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		487D63DC2A9AFB340078FFEE /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		487D64122A9C6BC50078FFEE /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
-		487D64142A9C6BD50078FFEE /* TrendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendView.swift; sourceTree = "<group>"; };
+		487D64142A9C6BD50078FFEE /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		487D64172A9C6BFE0078FFEE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		487D64192A9C6C120078FFEE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		487D641C2A9CD8E30078FFEE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		487D641E2A9CE3380078FFEE /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
+		487D641E2A9CE3380078FFEE /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,11 +175,9 @@
 		487D641B2A9C6C670078FFEE /* MovieView */ = {
 			isa = PBXGroup;
 			children = (
-				4861715F2A868A000034DCEE /* TrendTableViewCell.swift */,
-				486171602A868A000034DCEE /* TrendTableViewCell.xib */,
-				487D64142A9C6BD50078FFEE /* TrendView.swift */,
-				4861715D2A8689E40034DCEE /* TrendViewController.swift */,
-				487D641E2A9CE3380078FFEE /* TrendingTableViewCell.swift */,
+				487D64142A9C6BD50078FFEE /* MovieView.swift */,
+				4861715D2A8689E40034DCEE /* MovieViewController.swift */,
+				487D641E2A9CE3380078FFEE /* MovieTableViewCell.swift */,
 			);
 			path = MovieView;
 			sourceTree = "<group>";
@@ -261,7 +255,6 @@
 				486171642A868B420034DCEE /* .gitignore in Resources */,
 				486171502A867E9F0034DCEE /* LaunchScreen.storyboard in Resources */,
 				4861714D2A867E9F0034DCEE /* Assets.xcassets in Resources */,
-				486171622A868A000034DCEE /* TrendTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +267,11 @@
 			files = (
 				487D63DD2A9AFB340078FFEE /* IntroViewController.swift in Sources */,
 				487D64132A9C6BC50078FFEE /* CreditView.swift in Sources */,
-				4861715E2A8689E40034DCEE /* TrendViewController.swift in Sources */,
-				486171612A868A000034DCEE /* TrendTableViewCell.swift in Sources */,
+				4861715E2A8689E40034DCEE /* MovieViewController.swift in Sources */,
 				487D641A2A9C6C120078FFEE /* BaseViewController.swift in Sources */,
 				482906402A8F7FF600B45D84 /* TrendAPIManager.swift in Sources */,
 				482906422A8F820300B45D84 /* Trending.swift in Sources */,
-				487D64152A9C6BD50078FFEE /* TrendView.swift in Sources */,
+				487D64152A9C6BD50078FFEE /* MovieView.swift in Sources */,
 				487D641D2A9CD8E30078FFEE /* BaseTableViewCell.swift in Sources */,
 				486171442A867E9B0034DCEE /* AppDelegate.swift in Sources */,
 				486171682A8754DD0034DCEE /* ReusableViewProtocol.swift in Sources */,
@@ -289,7 +281,7 @@
 				486171462A867E9C0034DCEE /* SceneDelegate.swift in Sources */,
 				4861716D2A878BA30034DCEE /* CreditViewController.swift in Sources */,
 				4829063C2A8F7BEE00B45D84 /* SimilarAPIManager.swift in Sources */,
-				487D641F2A9CE3380078FFEE /* TrendingTableViewCell.swift in Sources */,
+				487D641F2A9CE3380078FFEE /* MovieTableViewCell.swift in Sources */,
 				487D64182A9C6BFE0078FFEE /* BaseView.swift in Sources */,
 				481438632A962D1E00AE3342 /* Theaters.swift in Sources */,
 				4861716F2A8809EB0034DCEE /* CreditTableViewCell.swift in Sources */,

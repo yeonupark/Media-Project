@@ -114,10 +114,8 @@ class ThirdViewController: UIViewController {
     }
     
     @objc func start() {
-//        let sb = UIStoryboard(name: "Main", bundle: nil)
-        //let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier)
         
-        let vc = TrendViewController()
+        let vc = MovieViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
