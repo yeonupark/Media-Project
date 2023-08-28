@@ -17,18 +17,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let isLaunced = UserDefaults.standard.bool(forKey: "isLaunched")
-        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        window = UIWindow(windowScene: scene)
         
         if !isLaunced {
             let vc = IntroViewController()
             window?.rootViewController = vc
         } else {
-            guard let vc = sb.instantiateViewController(withIdentifier: TrendViewController.identifier) as? TrendViewController else { return }
+            let vc = TrendViewController()
             window?.rootViewController = vc
         }
         
         window?.makeKeyAndVisible()
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

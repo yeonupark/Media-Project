@@ -10,28 +10,23 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
-struct cast {
-    let originName: String
-    let character: String
-    let image: String
-}
-
-class CreditViewController: UIViewController {
-
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var contentTextView: UITextView!
-    @IBOutlet var posterImage: UIImageView!
+class CreditViewController: BaseViewController {
     
-    @IBOutlet var tableView: UITableView!
+    let mainView = CreditView()
     
     var movie: Movie = Movie(title: " ", releaseDate: " ", poster: " ", rate: " ", overview: " ", id: " ", originalTitle: " ", genres: [])
     var castList: [cast] = []
+    
+    override func loadView() {
+        view.self = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.allowsSelection = false
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
+        mainView.tableView.allowsSelection = false
         
         setMovieInfo()
         
@@ -41,15 +36,11 @@ class CreditViewController: UIViewController {
     func setMovieInfo() {
         let posterUrl = "https://image.tmdb.org/t/p/w500"+movie.poster
         if let url = URL(string: posterUrl){
-            posterImage.kf.setImage(with: url)
+            mainView.posterImage.kf.setImage(with: url)
         }
         
-        titleLabel.text = movie.title
-        titleLabel.backgroundColor = .white
-        titleLabel.font = .boldSystemFont(ofSize: 15)
-        
-        contentTextView.text = movie.overview
-        contentTextView.isEditable = false
+        mainView.titleLabel.text = movie.title
+        mainView.contentTextView.text = movie.overview
     }
     
     func callCreditRequest(id: String) {
@@ -68,7 +59,7 @@ class CreditViewController: UIViewController {
                     let actor = cast(originName: origin, character: character, image: image)
                     self.castList.append(actor)
                 }
-                self.tableView.reloadData()
+                self.mainView.tableView.reloadData()
                 //print(self.castList)
                 
             case .failure(let error):

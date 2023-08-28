@@ -10,43 +10,30 @@ import SwiftyJSON
 import Alamofire
 import Kingfisher
 
-struct Movie {
-    let title: String
-    let releaseDate: String
-    let poster: String
-    let rate: String
-    let overview: String
-    let id: String
-    let originalTitle: String
+class TrendViewController: BaseViewController {
     
-    let genres: [Int]
-}
-
-class TrendViewController: UIViewController {
-    
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    @IBOutlet var trendTableView: UITableView!
+    let mainView = TrendView()
     
     var movies: [Movie] = []
     var trendMovies: [Movie] = []
     var similarMovies: [Movie] = []
-    
     var genre_dict: [[String: String]] = []
     
+    override func loadView() {
+        view.self = mainView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: TrendTableViewCell.identifier, bundle: nil)
-        trendTableView.register(nib, forCellReuseIdentifier: TrendTableViewCell.identifier)
         
-        trendTableView.delegate = self
-        trendTableView.dataSource = self
-        trendTableView.rowHeight = 200
+        mainView.trendTableView.delegate = self
+        mainView.trendTableView.dataSource = self
         
-        setSegmentedControl()
+        mainView.segmentedControl.addTarget(self, action: #selector(switchViews), for: .valueChanged)
+
         getGenre()
         dispatchGroup()
-        
         UserDefaults.standard.set(true, forKey: "isLaunched")
     }
     
@@ -93,7 +80,7 @@ class TrendViewController: UIViewController {
         
         group.notify(queue: .main) {
             self.movies = self.trendMovies //
-            self.trendTableView.reloadData()
+            self.mainView.trendTableView.reloadData()
             print("end")
         }
         
@@ -122,20 +109,14 @@ class TrendViewController: UIViewController {
         }
     }
     
-    func setSegmentedControl() {
-        segmentedControl.setTitle("실시간 인기 컨텐츠", forSegmentAt: 0)
-        segmentedControl.setTitle("유사한 컨텐츠", forSegmentAt: 1)
-        segmentedControl.backgroundColor = .systemPink
-    }
-    
-    @IBAction func switchViews(_ sender: UISegmentedControl) {
+    @objc func switchViews(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             movies = trendMovies
-            trendTableView.reloadData()
+            mainView.trendTableView.reloadData()
             
         } else {
             movies = similarMovies
-            trendTableView.reloadData()
+            mainView.trendTableView.reloadData()
         }
     }
 }
@@ -147,15 +128,17 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = trendTableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.identifier) as! TrendTableViewCell
+        guard let cell = mainView.trendTableView.dequeueReusableCell(withIdentifier: TrendingTableViewCell.identifier) as? TrendingTableViewCell else {
+            print("ㅜㅜ")
+            return UITableViewCell()}
         
         let movie = movies[indexPath.row]
-        cell.titleLabel?.text = movie.title
-        cell.originalTitleLabel?.text = " " + movie.originalTitle
-        cell.dateLabel?.text = String(movie.releaseDate.prefix(4))
-        cell.rateLabel?.text = "★ " + String(movie.rate.prefix(3))
+        cell.titleLabel.text = movie.title
+        cell.originalTitleLabel.text = " " + movie.originalTitle
+        cell.dateLabel.text = String(movie.releaseDate.prefix(4))
+        cell.rateLabel.text = "★ " + String(movie.rate.prefix(3))
         let genres = translateGenre(movie.genres)
-        cell.genreLabel?.text = genres
+        cell.genreLabel.text = genres
         
         let posterUrl = "https://image.tmdb.org/t/p/w500"+movie.poster
         if let url = URL(string: posterUrl){
@@ -167,8 +150,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: CreditViewController.identifier) as! CreditViewController
-        
+        let vc = CreditViewController()
         vc.movie = movies[indexPath.row]
         present(vc, animated: true)
     }
@@ -182,7 +164,6 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
                     if let name = genre["name"] {
                         genre_sentence += "#\(name) "
                     }
-                    
                 }
             }
         }
