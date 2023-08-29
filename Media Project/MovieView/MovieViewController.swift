@@ -31,10 +31,15 @@ class MovieViewController: BaseViewController {
         mainView.trendTableView.dataSource = self
         
         mainView.segmentedControl.addTarget(self, action: #selector(switchViews), for: .valueChanged)
-
+        mainView.profileButton.addTarget(self, action: #selector(profileButtonClicked), for: .touchUpInside)
         getGenre()
         dispatchGroup()
         UserDefaults.standard.set(true, forKey: "isLaunched")
+    }
+    
+    @objc func profileButtonClicked() {
+        let vc = ProfileViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func dispatchGroup() {

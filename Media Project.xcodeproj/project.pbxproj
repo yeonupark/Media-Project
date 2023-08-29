@@ -14,6 +14,10 @@
 		4829063C2A8F7BEE00B45D84 /* SimilarAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829063B2A8F7BEE00B45D84 /* SimilarAPIManager.swift */; };
 		482906402A8F7FF600B45D84 /* TrendAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829063F2A8F7FF600B45D84 /* TrendAPIManager.swift */; };
 		482906422A8F820300B45D84 /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482906412A8F820300B45D84 /* Trending.swift */; };
+		485F5AD72A9DD2AD00113291 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F5AD42A9DD2AD00113291 /* ProfileTableViewCell.swift */; };
+		485F5AD82A9DD2AD00113291 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F5AD52A9DD2AD00113291 /* ProfileView.swift */; };
+		485F5AD92A9DD2AD00113291 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F5AD62A9DD2AD00113291 /* ProfileViewController.swift */; };
+		485F5ADD2A9DD85D00113291 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485F5ADC2A9DD85D00113291 /* EditViewController.swift */; };
 		486171442A867E9B0034DCEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171432A867E9B0034DCEE /* AppDelegate.swift */; };
 		486171462A867E9C0034DCEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486171452A867E9C0034DCEE /* SceneDelegate.swift */; };
 		4861714D2A867E9F0034DCEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4861714C2A867E9F0034DCEE /* Assets.xcassets */; };
@@ -43,6 +47,10 @@
 		4829063B2A8F7BEE00B45D84 /* SimilarAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarAPIManager.swift; sourceTree = "<group>"; };
 		4829063F2A8F7FF600B45D84 /* TrendAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendAPIManager.swift; sourceTree = "<group>"; };
 		482906412A8F820300B45D84 /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
+		485F5AD42A9DD2AD00113291 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		485F5AD52A9DD2AD00113291 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		485F5AD62A9DD2AD00113291 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		485F5ADC2A9DD85D00113291 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		486171402A867E9B0034DCEE /* Media Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Media Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486171432A867E9B0034DCEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		486171452A867E9C0034DCEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +124,17 @@
 			path = SimilarView;
 			sourceTree = "<group>";
 		};
+		485F5AD32A9DD17100113291 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				485F5AD62A9DD2AD00113291 /* ProfileViewController.swift */,
+				485F5AD52A9DD2AD00113291 /* ProfileView.swift */,
+				485F5AD42A9DD2AD00113291 /* ProfileTableViewCell.swift */,
+				485F5ADC2A9DD85D00113291 /* EditViewController.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		486171372A867E9B0034DCEE = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +155,7 @@
 		486171422A867E9B0034DCEE /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
+				485F5AD32A9DD17100113291 /* ProfileView */,
 				487D63DB2A9AF97D0078FFEE /* IntroView */,
 				487D64162A9C6BF00078FFEE /* Base */,
 				487D641B2A9C6C670078FFEE /* MovieView */,
@@ -273,6 +293,7 @@
 				482906422A8F820300B45D84 /* Trending.swift in Sources */,
 				487D64152A9C6BD50078FFEE /* MovieView.swift in Sources */,
 				487D641D2A9CD8E30078FFEE /* BaseTableViewCell.swift in Sources */,
+				485F5ADD2A9DD85D00113291 /* EditViewController.swift in Sources */,
 				486171442A867E9B0034DCEE /* AppDelegate.swift in Sources */,
 				486171682A8754DD0034DCEE /* ReusableViewProtocol.swift in Sources */,
 				4829063A2A8F7B7200B45D84 /* Similar.swift in Sources */,
@@ -280,10 +301,13 @@
 				486171662A868B590034DCEE /* APIKey.swift in Sources */,
 				486171462A867E9C0034DCEE /* SceneDelegate.swift in Sources */,
 				4861716D2A878BA30034DCEE /* CreditViewController.swift in Sources */,
+				485F5AD92A9DD2AD00113291 /* ProfileViewController.swift in Sources */,
+				485F5AD72A9DD2AD00113291 /* ProfileTableViewCell.swift in Sources */,
 				4829063C2A8F7BEE00B45D84 /* SimilarAPIManager.swift in Sources */,
 				487D641F2A9CE3380078FFEE /* MovieTableViewCell.swift in Sources */,
 				487D64182A9C6BFE0078FFEE /* BaseView.swift in Sources */,
 				481438632A962D1E00AE3342 /* Theaters.swift in Sources */,
+				485F5AD82A9DD2AD00113291 /* ProfileView.swift in Sources */,
 				4861716F2A8809EB0034DCEE /* CreditTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

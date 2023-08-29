@@ -21,6 +21,14 @@ struct Movie {
 
 class MovieView: BaseView {
 
+    let profileButton = {
+        let view = UIButton()
+        view.setImage(UIImage(systemName: "person.circle"), for: .normal)
+        view.tintColor = .systemPink
+        
+        return view
+    }()
+    
     let segmentedControl = {
         let view = UISegmentedControl(items: ["실시간 인기 컨텐츠", "유사한 컨텐츠"])
         view.backgroundColor = .systemPink
@@ -38,13 +46,20 @@ class MovieView: BaseView {
     
     override func configureView() {
         addSubview(segmentedControl)
+        addSubview(profileButton)
         addSubview(trendTableView)
         trendTableView.rowHeight = 200
     }
     
     override func setConstraints() {
         segmentedControl.snp.makeConstraints { make in
-            make.horizontalEdges.top.equalTo(self.safeAreaLayoutGuide)
+            make.leading.top.equalTo(self.safeAreaLayoutGuide)
+            make.trailing.equalTo(self.safeAreaLayoutGuide).inset(60)
+        }
+        profileButton.snp.makeConstraints { make in
+            make.leading.equalTo(segmentedControl.snp.trailing)
+            make.top.trailing.equalTo(self.safeAreaLayoutGuide)
+            make.bottom.equalTo(segmentedControl.snp.bottom)
         }
         trendTableView.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalToSuperview()

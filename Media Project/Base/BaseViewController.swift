@@ -18,7 +18,7 @@ class BaseViewController: UIViewController {
     }
     
     func configureView() {
-        //view.backgroundColor = .white
+        view.backgroundColor = .white
         print("Base ConfigureView")
     }
     

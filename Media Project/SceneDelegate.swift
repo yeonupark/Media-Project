@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = vc
         } else {
             let vc = MovieViewController()
-            window?.rootViewController = vc
+            window?.rootViewController = UINavigationController(rootViewController: vc)
         }
         
         window?.makeKeyAndVisible()
